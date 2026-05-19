@@ -1,42 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>自分の名前のページ</title>
-        <link rel="stylesheet" href="style.css">
-        <style>
-            body {
-                text-align: center;
-                margin-top: 80px;
-                background: linear-gradient(135deg, #f8f0ff, #e0f7ff);
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自分の名前のページ</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            text-align: center;
+            margin-top: 80px;
+            background: linear-gradient(135deg, #f8f0ff, #e0f7ff);
+        }
+
+        h1 {
+            display: inline-block;
+            animation: floatText 2.5s ease-in-out infinite;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #333;
+            margin-top: 20px;
+            animation: fadeIn 2s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes floatText {
+
+            0%,
+            100% {
+                transform: translateY(0);
             }
-            h1 {
-                display: inline-block;
-                animation: floatText 2.5s ease-in-out infinite;
+
+            50% {
+                transform: translateY(-15px);
             }
-            p {
-                font-size: 1.2rem;
-                color: #333;
-                margin-top: 20px;
-                animation: fadeIn 2s ease forwards;
-                opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
             }
-            @keyframes floatText {
-                0%, 100% { transform: translateY(0); }
-                50% { transform: translateY(-15px); }
+        }
+
+        @media (max-width: 600px) {
+
+            /* スマホ専用のCSSをここに記述 */
+            .grid {
+                grid-template-columns: 1fr;
             }
-            @keyframes fadeIn {
-                to { opacity: 1; }
-            }
-        </style>
-    </head>
-    <body>
-        <!-- コメントを入れる場所です。コメントはブラウザには表示されません。 -->
-        <h1>こんにちは、ほんだです！</h1>
-        <p>初めてHTMLを書いてます。</p>
-        <img src="image.png" alt="Your Image" width="200" height="200">
-        <br>
-        <img src="image copy.png" alt="Your Image" width="200" height="200">
-    </body>
+        }
+    </style>
+</head>
+
+<body>
+    <!-- コメントを入れる場所です。コメントはブラウザには表示されません。 -->
+    <h1>こんにちは、ほんだです！</h1>
+    <p>初めてHTMLを書いてます。</p>
+    <img src="image.png" alt="Your Image" width="200" height="200">
+    <br>
+    <img src="image copy.png" alt="Your Image" width="200" height="200">
+</body>
+
 </html>
