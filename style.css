@@ -1,11 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
 h1 {
-        color: teal; 
-        font-size: 6rem;
+    color: teal;
+    font-size: 6rem;
 }
 
-body { 
-    background-color: #fff9e2; 
+body {
+    background-color: #fff9e2;
     font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+@media (max-width: 600px) {
+
+    /* スマホ専用のCSSをここに記述 */
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }
