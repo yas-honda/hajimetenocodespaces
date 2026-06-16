@@ -48,13 +48,45 @@
 
 <body>
     <!-- コメントを入れる場所です。コメントはブラウザには表示されません。 -->
+    <h2>今日の運勢</h2>
+    <p id="fortune">ここに結果が出ます</p>
+
+    <h2>気分スコア診断</h2>
+    <p>今日の気分を 0〜10 の数値で mood 変数に書いて更新してください</p>
+    <p id="result">ここに診断結果が出ます</p>
+
     <h1>こんにちは、ほんだです！</h1>
     <p>初めてHTMLを書いてます。</p>
     <img src="image.png" alt="Your Image" width="200" height="200">
     <br>
     <img src="image copy.png" alt="Your Image" width="200" height="200">
     <script>
-        console.log("はじめての JavaScript");
+        const fortunes = ["大吉", "中吉", "小吉", "末吉", "凶"];
+        const index = Math.floor(Math.random() * fortunes.length);
+        const result = fortunes[index];
+
+        console.log(result);
+
+        // HTML の id="fortune" の要素を取り出して中身を書き換える
+        document.getElementById("fortune").textContent = result;
+
+        // 気分スコア診断
+        const mood = 10;  // 0〜10 で気分を表す数値
+
+        let message;
+
+        if (mood >= 9) {
+            message = "絶好調！その勢いを大切に";
+        } else if (mood >= 6) {
+            message = "いい感じ。今日もがんばろう";
+        } else if (mood >= 3) {
+            message = "ぼちぼち。無理せずいこう";
+        } else {
+            message = "お疲れさま。今日はゆっくり休もう";
+        }
+
+        console.log(message);
+        document.getElementById("result").textContent = message;
     </script>
 </body>
 
