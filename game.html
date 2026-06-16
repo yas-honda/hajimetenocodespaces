@@ -15,7 +15,23 @@
     <p><a href="index.html">トップに戻る</a></p>
 
     <script>
-        // ここに統合ロジックを書く（次の手順で）
+        // 1〜6 のサイコロを 1 回だけ振る
+        const dice = Math.floor(Math.random() * 6) + 1;
+
+        // 出目で「今日のおすすめ行動」を分岐
+        let advice;
+        if (dice >= 5) {
+            advice = "机を片付けて気持ちをリセット";
+        } else if (dice >= 3) {
+            advice = "コップ1杯の水を飲んでひと息";
+        } else {
+            advice = "深呼吸を3回してから次の作業へ";
+        }
+
+        // 結果を画面に表示
+        const message = `🎲 ${dice} が出ました！→ ${advice}`;
+        document.getElementById("game-result").textContent = message;
+        console.log(message);
     </script>
 </body>
 
