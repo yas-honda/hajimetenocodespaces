@@ -63,7 +63,8 @@
     <img src="image copy.png" alt="Your Image" width="200" height="200">
     <script>
         // おみくじエリア
-        const fortunes = ["大吉", "中吉", "小吉", "末吉", "凶"];
+        // const fortunes = ["大吉", "中吉", "小吉", "末吉", "凶"];
+        const fortunes = ["凶", "末吉", "小吉", "中吉", "大吉"];
         const index = Math.floor(Math.random() * fortunes.length);
         const result = fortunes[index];
 
@@ -74,7 +75,7 @@
         // -------------
 
         // 気分スコア診断
-        const mood = 10;  // 0〜10 で気分を表す数値
+        const mood = index * 2 + 1;  // 0〜10 で気分を表す数値
 
         let message;
 
