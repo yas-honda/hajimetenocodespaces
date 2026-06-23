@@ -32,6 +32,20 @@
         const message = `🎲 ${dice} が出ました！→ ${advice}`;
         document.getElementById("game-result").textContent = message;
         console.log(message);
+
+        const dice1 = Math.floor(Math.random() * 6) + 1;
+        console.log(dice1);
+        const dice2 = Math.floor(Math.random() * 6) + 1;
+        console.log(dice2);
+        const dice3 = Math.floor(Math.random() * 6) + 1;
+        console.log(dice3);
+        // ... これを 10 個まで書く
+
+        const diceResults = [];
+        for (let i = 0; i < 10; i++) {
+            diceResults.push(Math.floor(Math.random() * 6) + 1);
+        }
+        console.log(diceResults);
     </script>
 </body>
 
