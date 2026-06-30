@@ -33,19 +33,21 @@
         document.getElementById("game-result").textContent = message;
         console.log(message);
 
-        const dice1 = Math.floor(Math.random() * 6) + 1;
-        console.log(dice1);
-        const dice2 = Math.floor(Math.random() * 6) + 1;
-        console.log(dice2);
-        const dice3 = Math.floor(Math.random() * 6) + 1;
-        console.log(dice3);
-        // ... これを 10 個まで書く
-
-        const diceResults = [];
-        for (let i = 0; i < 10; i++) {
-            diceResults.push(Math.floor(Math.random() * 6) + 1);
+        function rollDice() {
+            return Math.floor(Math.random() * 6) + 1;
         }
-        console.log(diceResults);
+
+        console.log("1 回目:", rollDice());
+        console.log("2 回目:", rollDice());
+        console.log("3 回目:", rollDice());
+
+        // 第9回の for 文と組み合わせる——10 回振る
+        const results = [];
+        for (let i = 0; i < 10; i++) {
+            results.push(rollDice());
+        }
+        console.log(results);
+
     </script>
 </body>
 
