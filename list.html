@@ -15,6 +15,30 @@
     <p><a href="index.html">トップに戻る</a></p>
 
     <script>
+        // const favorites = [
+        //     "好きな食べ物：カレー",
+        //     "好きな色：青",
+        //     "好きな音楽：J-POP",
+        //     "好きな場所：図書館"
+        // ];
+
+        // const ul = document.getElementById("favorite-list");
+
+        // for (let i = 0; i < favorites.length; i++) {
+        //     const li = document.createElement("li");
+        //     li.textContent = favorites[i];
+        //     ul.appendChild(li);
+        // }
+
+        function showList(items) {
+            const ul = document.getElementById("favorite-list");
+            for (let i = 0; i < items.length; i++) {
+                const li = document.createElement("li");
+                li.textContent = items[i];
+                ul.appendChild(li);
+            }
+        }
+
         const favorites = [
             "好きな食べ物：カレー",
             "好きな色：青",
@@ -22,14 +46,8 @@
             "好きな場所：図書館"
         ];
 
-        const ul = document.getElementById("favorite-list");
-
-        for (let i = 0; i < favorites.length; i++) {
-            const li = document.createElement("li");
-            li.textContent = favorites[i];
-            ul.appendChild(li);
-        }
-
+        showList(favorites);
+        
     </script>
 </body>
 
