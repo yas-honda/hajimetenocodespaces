@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>localStorageのデモ</title>
+</head>
+<body>
+  <h1>ボタンを押した回数を数える</h1>
+  <p>これまでに <span id="count">0</span> 回押されました</p>
+  <button id="count-btn">押す</button>
+
+  <script>
+    // ページを開いたとき、保存されている回数を読み込む（なければ0）
+    let count = Number(localStorage.getItem('clickCount')) || 0;
+    document.getElementById('count').textContent = count;
+
+    document.getElementById('count-btn').addEventListener('click', () => {
+      count = count + 1;
+      document.getElementById('count').textContent = count;
+      // 押すたびに、回数をlocalStorageに保存する
+      localStorage.setItem('clickCount', count);
+    });
+  </script>
+</body>
+</html>

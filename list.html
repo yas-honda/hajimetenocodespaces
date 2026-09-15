@@ -10,44 +10,54 @@
 
 <body>
     <h1>私のお気に入り</h1>
-    <p>配列に入れたものを <code>for</code> 文で全部表示します</p>
+    <div>
+        <input type="text" id="input-category" placeholder="カテゴリ（例：好きな食べ物）">
+        <input type="text" id="input-value" placeholder="内容（例：カレー）">
+        <input type="text" id="input-reason" placeholder="理由（例：辛いから）">
+        <button id="add-btn">追加する</button>
+    </div>
     <ul id="favorite-list"></ul>
     <p><a href="index.html">トップに戻る</a></p>
 
     <script>
-        // const favorites = [
-        //     "好きな食べ物：カレー",
-        //     "好きな色：青",
-        //     "好きな音楽：J-POP",
-        //     "好きな場所：図書館"
-        // ];
+        const favorites = [
+            { category: "好きな食べ物", value: "カレー", reason: "辛いものが好きだから" },
+            { category: "好きな色", value: "青", reason: "空の色だから" },
+            { category: "好きな音楽", value: "J-POP", reason: "歌詞が心に残るから" },
+            { category: "好きな場所", value: "図書館", reason: "静かで集中できるから" }
+        ];
 
-        // const ul = document.getElementById("favorite-list");
+        const ul = document.getElementById("favorite-list");
 
-        // for (let i = 0; i < favorites.length; i++) {
-        //     const li = document.createElement("li");
-        //     li.textContent = favorites[i];
-        //     ul.appendChild(li);
-        // }
-
-        function showList(items) {
-            const ul = document.getElementById("favorite-list");
-            for (let i = 0; i < items.length; i++) {
+        function render() {
+            ul.innerHTML = "";
+            for (let i = 0; i < favorites.length; i++) {
                 const li = document.createElement("li");
-                li.textContent = items[i];
+                li.textContent = `${favorites[i].category}：${favorites[i].value}（${favorites[i].reason}）`;
                 ul.appendChild(li);
             }
         }
 
-        const favorites = [
-            "好きな食べ物：カレー",
-            "好きな色：青",
-            "好きな音楽：J-POP",
-            "好きな場所：図書館"
-        ];
+        render();
 
-        showList(favorites);
-        
+        document.getElementById("add-btn").addEventListener("click", () => {
+            const category = document.getElementById("input-category").value;
+            const value = document.getElementById("input-value").value;
+            const reason = document.getElementById("input-reason").value;
+
+            if (category === "" || value === "") {
+                alert("カテゴリと内容は入力してください");
+                return;
+            }
+
+            favorites.push({ category, value, reason });
+            render();
+
+            document.getElementById("input-category").value = "";
+            document.getElementById("input-value").value = "";
+            document.getElementById("input-reason").value = "";
+        });
+
     </script>
 </body>
 

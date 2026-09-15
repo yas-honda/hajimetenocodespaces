@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>inputのデモ</title>
+</head>
+<body>
+  <input type="text" id="name-input" placeholder="名前を入力">
+  <button id="greet-btn">あいさつする</button>
+  <p id="greet-result"></p>
+
+  <script>
+    document.getElementById("greet-btn").addEventListener("click", () => {
+      const name = document.getElementById("name-input").value;
+      document.getElementById("greet-result").textContent = `こんにちは、${name}さん！`;
+    });
+  </script>
+</body>
+</html>
