@@ -20,17 +20,25 @@
     <p><a href="index.html">トップに戻る</a></p>
 
     <script>
-        const favorites = [
-            { category: "好きな食べ物", value: "カレー", reason: "辛いものが好きだから" },
-            { category: "好きな色", value: "青", reason: "空の色だから" },
-            { category: "好きな音楽", value: "J-POP", reason: "歌詞が心に残るから" },
-            { category: "好きな場所", value: "図書館", reason: "静かで集中できるから" }
-        ];
+        const favorites = loadFavorites();
 
 function saveFavorites() {
   localStorage.setItem("favorites", JSON.stringify(favorites));
 }
-        
+
+function loadFavorites() {
+  const saved = localStorage.getItem("favorites");
+  if (saved === null) {
+    return [
+      { category: "好きな食べ物", value: "カレー", reason: "辛いものが好きだから" },
+      { category: "好きな色",     value: "青",     reason: "空の色だから" },
+      { category: "好きな音楽",   value: "J-POP",  reason: "歌詞が心に残るから" },
+      { category: "好きな場所",   value: "図書館", reason: "静かで集中できるから" }
+    ];
+  }
+  return JSON.parse(saved);
+}
+
         const ul = document.getElementById("favorite-list");
 
         function render() {
