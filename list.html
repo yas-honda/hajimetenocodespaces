@@ -27,6 +27,10 @@
             { category: "好きな場所", value: "図書館", reason: "静かで集中できるから" }
         ];
 
+function saveFavorites() {
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+}
+        
         const ul = document.getElementById("favorite-list");
 
         function render() {
@@ -51,6 +55,7 @@
             }
 
             favorites.push({ category, value, reason });
+            saveFavorites();
             render();
 
             document.getElementById("input-category").value = "";
