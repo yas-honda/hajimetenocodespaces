@@ -12,16 +12,17 @@
   <script>
     const colors = ["赤", "青", "緑"];
 
-    document.getElementById("save-btn").addEventListener("click", () => {
-      localStorage.setItem("colors", colors);
-      document.getElementById("result").textContent = "保存しました（そのまま保存）";
-    });
+document.getElementById("save-btn").addEventListener("click", () => {
+  localStorage.setItem("colors", JSON.stringify(colors));
+  document.getElementById("result").textContent = "保存しました（JSON.stringifyで変換）";
+});
 
-    document.getElementById("load-btn").addEventListener("click", () => {
-      const loaded = localStorage.getItem("colors");
-      console.log(loaded);
-      document.getElementById("result").textContent = loaded;
-    });
+document.getElementById("load-btn").addEventListener("click", () => {
+  const saved = localStorage.getItem("colors");
+  const loadedColors = JSON.parse(saved);
+  console.log(loadedColors);
+  document.getElementById("result").textContent = loadedColors.join("、");
+});
   </script>
 </body>
 </html>
