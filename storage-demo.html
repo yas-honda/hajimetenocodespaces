@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>localStorageとJSONのデモ</title>
+</head>
+<body>
+  <button id="save-btn">配列を保存する</button>
+  <button id="load-btn">保存した配列を読み込む</button>
+  <p id="result"></p>
+
+  <script>
+    const colors = ["赤", "青", "緑"];
+
+    document.getElementById("save-btn").addEventListener("click", () => {
+      localStorage.setItem("colors", colors);
+      document.getElementById("result").textContent = "保存しました（そのまま保存）";
+    });
+
+    document.getElementById("load-btn").addEventListener("click", () => {
+      const loaded = localStorage.getItem("colors");
+      console.log(loaded);
+      document.getElementById("result").textContent = loaded;
+    });
+  </script>
+</body>
+</html>
